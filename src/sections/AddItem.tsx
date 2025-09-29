@@ -22,8 +22,8 @@ export function AddItem() {
               />
               <Button 
                 variant="default" 
-                size="sm" 
-                className="h-10 cursor-pointer"
+                size="lg" 
+                className="h-10 bg-blue-600 cursor-pointer"
               >
                 <Plus color="#FFF" />
                 Adicionar
