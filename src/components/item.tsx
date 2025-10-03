@@ -1,7 +1,7 @@
 // import { FilePenLine, Trash2 } from "lucide-react";
 // import { Container } from "./container";
 // import { Card, CardContent } from "./ui/card";
-// import { Checkbox } from "./ui/checkbox";
+import { Checkbox } from "./ui/checkbox";
 import type { ShoppingItem } from "@/types/shopping";
 import React, { useState } from "react";
 import { useShoppingList } from "@/contexts/ShoppingListContext";
@@ -32,7 +32,7 @@ export function Item({ item }: ItemProps) {
         setEditDescription(item.description);
       }
     }
-    // setEditDescription(!isEditing);
+    setIsEditing(!isEditing);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -58,20 +58,11 @@ export function Item({ item }: ItemProps) {
     }`}>
       {/* Checkbox e Texto/Input */}
       <div className="flex items-center flex-1 min-w-0">
-        <input
-          type="checkbox"
+        <Checkbox 
           checked={item.completed}
-          onChange={handleToggle}
-          // className="h-5 w-5 text-blue-600 rounded focus:ring-blue-500 mr-3 flex-shrink-0"
-          className="h-5 w-5 rounded-full border-2 border-gray-300"
+          onCheckedChange={handleToggle}
+          className="h-5 w-5 mr-3 rounded-full border-2 border-gray-300"
         />
-        {/* <Checkbox 
-          className="h-5 w-5 rounded-full border-2 border-gray-300"
-          checked={item.completed}
-          onChange={handleToggle}
-        >
-          {item.description}
-        </Checkbox> */}
         
         {isEditing ? (
           <input
